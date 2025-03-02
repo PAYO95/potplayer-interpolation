@@ -51,3 +51,7 @@ Prefetch(4)
 ```
 
 ✅ **Selesai!** Kini PotPlayer anda boleh memainkan video dengan interpolasi 120FPS! 🚀
+
+🎬 **Cara Semak FPS**
+Mainkan satu video dan tekan **Tab** (Nota: Periksa FPS) dalam PotPlayer untuk menyemak sama ada video berjaya diinterpolasi ke 120FPS.
+
