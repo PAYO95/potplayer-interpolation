@@ -2,43 +2,67 @@
           PotPlayer Video Interpolation
 ==============================================
 
-📌 **INSTALLATION**
+REQUIREMENTS
+- Windows 10/11
+- AviSynth+ (Latest Release)
+- PotPlayer (Latest Release)
 
-1️⃣ **Download & Install AviSynth+**
-   - Muat turun dan pasang **AviSynthPlus v3.7.3**  
-   - Link: https://github.com/AviSynth/AviSynthPlus/releases/download/v3.7.3/AviSynthPlus_3.7.3_20230715_vcredist.exe
+==============================================
+INSTALLATION
+==============================================
 
-2️⃣ **Download & Install PotPlayer**  
-   - Muat turun **PotPlayer** (pilih 64-bit atau 32-bit mengikut sistem anda)  
+1. Download & Install AviSynth+
+   - Muat turun dan pasang AviSynthPlus (Latest Release)
+   - Link: https://github.com/AviSynth/AviSynthPlus/releases
+
+2. Download & Install PotPlayer
+   - Muat turun PotPlayer (Latest Release, pilih 64-bit atau 32-bit mengikut sistem anda)
    - Link: https://potplayer.daum.net/
 
-3️⃣ **Salin Fail DLL**
-   - Salin dan tampal **3 fail .dll** ke lokasi berikut:  
-     ```
+3. Salin Fail DLL
+   - Salin dan tampal 3 fail .dll ke lokasi berikut:
      C:\Program Files (x86)\AviSynth+\plugins64
-     ```
 
-📌 **POTPLAYER SETUP**
-1️⃣ **Tetapan Codec**
-   - Pergi ke **Preferences > Filter Control > Video Decoder**  
-   - Klik **Built-in Video Codec/DXVA Setting**  
-   - Aktifkan **Use DXVA**  
-   - Pilih **Prioritize D3D11 DXVA**  
-   - Pilih **DXVA2 Copy-Back: D3D11 Auto**  
-   - Tekan **OK**  
+==============================================
+POTPLAYER SETUP
+==============================================
 
-2️⃣ **Aktifkan AviSynth**
-   - Pergi ke **Video > AviSynth**  
-   - Aktifkan **Enable AviSynth processing**  
-   - Tampal kod berikut dalam **Load Script**  
-   - Tekan **Save**, namakan sebagai **"120fps"**, kemudian tekan **Apply**  
+1. Tetapan Codec
+   - Pergi ke Preferences > Filter Control > Video Decoder
+   - Klik Built-in Video Codec/DXVA Setting
+   - Aktifkan Use DXVA
+   - Pilih Prioritize D3D11 DXVA
+   - Pilih DXVA2 Copy-Back: D3D11 Auto
+   - Tekan OK
 
-📌 **Skrip Interpolasi (120FPS)**
+2. Aktifkan AviSynth
+   - Pergi ke Video > AviSynth
+   - Aktifkan Enable AviSynth processing
+   - Tampal kod berikut di bawah Load Script
+   - Tekan Save, namakan sebagai "120fps", kemudian tekan Apply
 
-SetMemoryMax(512) SetFilterMTMode("DEFAULT_MT_MODE", 2) SetFilterMTMode("FFVideoSource", 3) potplayer_source() LoadPlugin("C:\Program Files (x86)\AviSynth+\plugins64\mvtools2.dll") super=MSuper(pel=1, hpad=0, vpad=0) backward_1=MAnalyse(super, chroma=false, isb=true, blksize=32, blksizev=32, searchparam=3, plevel=0, search=3, badrange=(-24)) forward_1=MAnalyse(super, chroma=false, isb=false, blksize=32, blksizev=32, searchparam=3, plevel=0, search=3, badrange=(-24)) backward_2 = MRecalculate(super, chroma=false, backward_1, blksize=8, blksizev=8, searchparam=0, search=3) forward_2 = MRecalculate(super, chroma=false, forward_1, blksize=8, blksizev=8, searchparam=0, search=3) MBlockFps(super, backward_2, forward_2, num=120, den=1, mode=2) Prefetch(4)
+==============================================
+Skrip Interpolasi (120FPS)
+==============================================
 
-✅ **Selesai!** Kini PotPlayer anda boleh memainkan video dengan interpolasi 120FPS untuk tontonan yang lebih lancar!  🚀🎬
+SetMemoryMax(512)
+SetFilterMTMode("DEFAULT_MT_MODE", 2)
+SetFilterMTMode("FFVideoSource", 3)
+potplayer_source()
+LoadPlugin("C:\Program Files (x86)\AviSynth+\plugins64\mvtools2.dll")
+super=MSuper(pel=1, hpad=0, vpad=0)
+backward_1=MAnalyse(super, chroma=false, isb=true, blksize=32, blksizev=32, searchparam=3, plevel=0, search=3, badrange=(-24))
+forward_1=MAnalyse(super, chroma=false, isb=false, blksize=32, blksizev=32, searchparam=3, plevel=0, search=3, badrange=(-24))
+backward_2=MRecalculate(super, chroma=false, backward_1, blksize=8, blksizev=8, searchparam=0, search=3)
+forward_2=MRecalculate(super, chroma=false, forward_1, blksize=8, blksizev=8, searchparam=0, search=3)
+MBlockFps(super, backward_2, forward_2, num=120, den=1, mode=2)
+Prefetch(4)
 
-🎬Mainkan 1 video dan Tekan **tab (Note: check pada FPS)** dalam potplayer untuk mengecek adakah berjaya di Interpolasi ke 120fps 
+==============================================
+SELESAI
+==============================================
 
+Kini PotPlayer anda boleh memainkan video dengan interpolasi 120FPS untuk tontonan yang lebih lancar.
 
+Cara Semak FPS
+Mainkan satu video dan tekan "Tab" pada PotPlayer untuk menyemak sama ada FPS telah berjaya diinterpolasi ke 120fps.
