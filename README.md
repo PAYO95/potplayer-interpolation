@@ -4,21 +4,21 @@
 Repositori ini menyediakan skrip dan konfigurasi untuk mengaktifkan interpolasi video dalam **PotPlayer**, meningkatkan kadar bingkai sehingga **120FPS** untuk pengalaman tontonan yang lebih lancar.
 
 ## 📌 Keperluan
-- **AviSynth+ v3.7.3** → [Download](https://github.com/AviSynth/AviSynthPlus/releases/download/v3.7.3/AviSynthPlus_3.7.3_20230715_vcredist.exe)
-- **PotPlayer (64-bit atau 32-bit)** → [Download](https://potplayer.daum.net/)
+- **AviSynth+ Latest Release** → [View](https://github.com/AviSynth/AviSynthPlus/releases)
+- **PotPlayer (64-bit atau 32-bit)** → [View](https://potplayer.daum.net/)
+- **3 file .dll**
 
 ## 🛠 Pemasangan
 
 ### 1️⃣ Pasang AviSynth+ dan PotPlayer  
-- Muat turun dan pasang **AviSynth+ v3.7.3**  
-- Muat turun dan pasang **PotPlayer** mengikut versi Windows anda  
+- Muat turun dan pasang **AviSynth+ Latest release**  
+- Muat turun dan pasang **PotPlayer**  
 
 ### 2️⃣ Salin Fail DLL  
-- Salin dan tampal **3 fail .dll** ke:
+- Salin dan tampal **3 fail .dll**:
   ```
   C:\Program Files (x86)\AviSynth+\plugins64
   ```
-
 ### 3️⃣ Tetapan PotPlayer  
 1. **Buka PotPlayer**  
 2. Pergi ke **Preferences > Filter Control > Video Decoder**  
@@ -31,7 +31,7 @@ Repositori ini menyediakan skrip dan konfigurasi untuk mengaktifkan interpolasi 
 ### 4️⃣ Aktifkan AviSynth  
 1. Pergi ke **Video > AviSynth**  
 2. Aktifkan **Enable AviSynth processing**  
-3. Tampal kod berikut dalam **Load Script**  
+3. Tampal kod berikut dibawah **Load Script**  
 4. Tekan **Save**, namakan sebagai **"120fps"**, kemudian tekan **Apply**  
 
 ## 🎞 Skrip Interpolasi (120FPS)
